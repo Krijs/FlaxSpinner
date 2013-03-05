@@ -19,24 +19,25 @@ public class AntiBan extends Node {
 		if (Random.nextInt(1, 100) >= 99) {        		
 			int num = Random.nextInt(1, 200);
 			int degree = Random.nextInt(1, 360);
-			int pitch = Random.nextInt(1, 360);
-			if (num <= 25) {
+			int pitch = Random.nextInt(1, 360);			
+			
+			if (num >= 1 && num <= 25) {
 				Camera.setNorth(); //Turns North
-			} else if (num <= 50) {
+			} else if (num > 25 && num <= 50) {
 				Camera.setAngle(degree); //Sets the Camera Angle 
-			} else if (num <= 75) {
+			} else if (num > 50 && num <= 75) {
 				Camera.setPitch(pitch);//Sets the Camera Pitch
-			} else if (num <= 100){
-				Tabs.STATS.open(false); //Opens the Stats Tab
+			} else if (num > 75 && num <= 100){
+				Tabs.STATS.open(false); //Opens the Stats Tab				
 				sleep(1500,2000);
-			} else if (num <= 125) {
+			} else if (num > 100 && num <= 125) {
 				Tabs.EQUIPMENT.open(false); //Opens the Equipment Tab
 				sleep(1500,2000);
-			} else if (num <= 150) {
+			} else if (num > 125 && num <= 150) {
 				Tabs.FRIENDS.open(false); //Opens the Friends Tab
 				sleep(1000,1500);
-			} else if (num <= 175) {
-				Tabs.PRAYER.open(false); //Opens the Prayer Icon
+			} else if (num > 150 && num <= 175) {
+				Tabs.PRAYER.open(false); //Opens the Prayer Icon				
 				sleep(1500,2000);
 			} else {
 				Camera.setAngle(degree); //Sets the Camera Angle
