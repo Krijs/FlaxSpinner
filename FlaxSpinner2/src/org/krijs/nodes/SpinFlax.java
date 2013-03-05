@@ -56,33 +56,5 @@ public class SpinFlax extends Node {
             getContainer().submit(job);
             job.join();
         }
-		
-		/*//This can be split into nodes to avoid repeated calls to handleFlaxWidgetSleep()
-		if(!handleFlaxWidgetSleep()) {			
-			SceneEntities.getNearest(new Filter<SceneObject>() {
-				public boolean accept(SceneObject entity) {
-					return entity.getId() == OBJECTS_SPINNER;
-				}
-			}).interact("Spin");
-			handleFlaxWidgetSleep();
-		}		*/		
 	}
-	
-	/*private boolean handleFlaxWidgetSleep() {
-		sleep(1000,2200);
-		boolean ret = handleFlaxWidget();
-		if(ret) {
-			sleep(1000,1500);
-		}
-		return ret;		
-	}
-
-	private boolean handleFlaxWidget() {
-		if(WIDGET_CREATE_ITEM.validate()) {			
-			return WIDGET_CREATE_ITEM.getChild(12).click(true);
-		} else {
-			return false;
-		}
-	}*/
-
 }
