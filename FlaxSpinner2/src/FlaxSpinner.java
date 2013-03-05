@@ -14,7 +14,7 @@ import org.powerbot.game.api.methods.tab.Skills;
 import org.krijs.nodes.*;
 import org.krijs.definitions.*;
 
-@Manifest(authors ={"Krijs"}, name = "kFlax Evolution 0.2.1", description = "Flaxination", version = 0.1)
+@Manifest(authors ={"Krijs"}, name = "kFlax", description = "Flaxination", version = 0.3)
 public class FlaxSpinner extends ActiveScript implements PaintListener {
 	
 	public static Tree jobContainer = null;
@@ -42,14 +42,13 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
 	     
 	     g.drawString("Flax spun: " + m.getXp() / 15, 633, 12);
 	     
-	     g.drawString("kFlax by Krijs v0.1", 663, 45);	
+	     g.drawString("kFlax by Krijs v0.3", 663, 45);	
 	     g.drawString("Currently: " + m.getCurrentAction(), 463, 45);
 	     
 	}
 
 	@Override
-	public int loop() {
-		// TODO Auto-generated method stub
+	public int loop() {	
 		
 		//Wait for game window to be fully loaded before doing anything.
 		if (Game.getClientState() != Game.INDEX_MAP_LOADED) {
