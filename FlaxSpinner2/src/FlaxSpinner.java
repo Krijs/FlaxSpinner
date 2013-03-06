@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import org.powerbot.core.Bot;
 import org.powerbot.core.event.listeners.PaintListener;
 import org.powerbot.core.script.ActiveScript;
 import org.powerbot.core.script.job.state.Node;
@@ -11,15 +12,18 @@ import org.powerbot.core.script.job.state.Tree;
 import org.powerbot.game.api.Manifest;
 import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.tab.Skills;
+import org.powerbot.game.api.methods.widget.WidgetCache;
+import org.powerbot.game.client.Client;
 import org.krijs.nodes.*;
 import org.krijs.definitions.*;
 
-@Manifest(authors ={"Krijs"}, name = "kFlax", description = "Flaxination", version = 0.3)
+@Manifest(authors ={"Krijs"}, name = "kFlax", description = "Flaxination", version = 0.4)
 public class FlaxSpinner extends ActiveScript implements PaintListener {
 	
 	public static Tree jobContainer = null;
     public static ArrayList<Node> jobs = new ArrayList<Node>();
     public PaintMethods m = new PaintMethods(Skills.CRAFTING);
+    private Client client = Bot.client();
 
 	@Override
 	public void onRepaint(Graphics g1) {
@@ -42,18 +46,24 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
 	     
 	     g.drawString("Flax spun: " + m.getXp() / 15, 633, 12);
 	     
-	     g.drawString("kFlax by Krijs v0.3", 663, 45);	
+	     g.drawString("kFlax by Krijs v0.4", 663, 45);	
 	     g.drawString("Currently: " + m.getCurrentAction(), 463, 45);
 	     
 	}
 
 	@Override
 	public int loop() {	
-		
-		//Wait for game window to be fully loaded before doing anything.
+		//don't do anything until game is loaded
 		if (Game.getClientState() != Game.INDEX_MAP_LOADED) {
-            return 2500;
-        }
+			return 1000;
+		}
+
+		//Should stop RSBot from dying after 5/6 hour lockout
+		if (client != Bot.client()) {
+			WidgetCache.purge();
+			Bot.context().getEventManager().addListener(this);
+			client = Bot.client();
+		}
 		
 		if (jobContainer != null) {
             final Node job = jobContainer.state();
