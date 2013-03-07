@@ -22,11 +22,11 @@ public class ClickSpinner extends Node {
 			public boolean accept(SceneObject entity) {
 				return entity.getId() == OBJECTS_SPINNER;
 			}
-		}).interact("Spin");
+		}).getLocation().interact("Spin");
 		sleep(1000, 1200); //account for lag
 		
 		while(!Players.getLocal().isIdle())
-			sleep(50);	
+			sleep(51);	
 	}
 
 }

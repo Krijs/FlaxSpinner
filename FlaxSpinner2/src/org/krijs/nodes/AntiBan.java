@@ -4,13 +4,15 @@ import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Tabs;
 import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Random;
+
+import static org.krijs.definitions.Globals.SCRIPT_RUNNING;
 import static org.krijs.definitions.Widgets.WIDGET_MAKE_ITEM;
 
 public class AntiBan extends Node {
 
 	@Override
 	public boolean activate() {		
-		return WIDGET_MAKE_ITEM.validate();
+		return SCRIPT_RUNNING && WIDGET_MAKE_ITEM.validate();
 	}
 
 	@Override

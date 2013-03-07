@@ -46,7 +46,7 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
 	     
 	     g.drawString("Flax spun: " + m.getXp() / 15, 633, 12);
 	     
-	     g.drawString("kFlax by Krijs v0.4", 663, 45);	
+	     g.drawString("kFlax by Krijs v0.4.1", 663, 45);	
 	     g.drawString("Currently: " + m.getCurrentAction(), 463, 45);
 	     
 	}
@@ -72,7 +72,8 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
                 getContainer().submit(job);
                 job.join();
             }
-        } else {
+        } else {       
+        	jobs.add(new CorrectPosition(m));
             jobs.add(new SpinFlax(m));
             jobs.add(new AntiBan());
             jobs.add(new WalkBank(m));
