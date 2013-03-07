@@ -1,0 +1,5 @@
+1. Handle misclicks that accidentally make character climb the ladder next to the bank (plane 3)
+2. Handle (potential) misclicks that accidentally make character descend to ground floor (plane 0) [failsafe, never happened]
+3. Handle misclicks that push character through the door next to the spin room if it's open. Some anti-botter may close it on us
+4. Rewrite logic in UserStairs.java to work properly. Clicks unnecessairly
+5. Fix nodes to not activate when user is on login/lobby screen so the bot can reload properly.
