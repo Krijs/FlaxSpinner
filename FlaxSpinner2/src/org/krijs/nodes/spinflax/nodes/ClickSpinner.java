@@ -22,7 +22,7 @@ public class ClickSpinner extends Node {
 			public boolean accept(SceneObject entity) {
 				return entity.getId() == OBJECTS_SPINNER;
 			}
-		}).getLocation().interact("Spin");
+		}).interact("Spin");
 		sleep(1000, 1200); //account for lag
 		
 		while(!Players.getLocal().isIdle())
