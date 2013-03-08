@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.core.script.job.state.Tree;
 import org.powerbot.game.api.methods.Calculations;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.krijs.definitions.PaintMethods;
 import org.krijs.nodes.walkbank.nodes.*;
@@ -25,7 +26,8 @@ public class WalkBank extends Node {
 
 	@Override
 	public boolean activate() {		
-		return SCRIPT_RUNNING && Calculations.distanceTo(TILE_BANK) >= 5 
+		return Game.isLoggedIn() && 
+				SCRIPT_RUNNING && Calculations.distanceTo(TILE_BANK) >= 5 
 				&& !Inventory.contains(ITEM_FLAX);
 	}
 

@@ -1,6 +1,7 @@
 package org.krijs.nodes.walkbank.nodes;
 
 import org.powerbot.core.script.job.state.Node;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.wrappers.interactive.Player;
 
@@ -12,7 +13,8 @@ public class Plane2 extends Node {
 	@Override
 	public boolean activate() {
 		Player p = Players.getLocal();
-		return p.getPlane() == 2 && !p.isMoving();
+		return Game.isLoggedIn() && 
+				p.getPlane() == 2 && !p.isMoving();
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package org.krijs.nodes.walkspinroom.nodes.plane2.nodes;
 import static org.krijs.definitions.Objects.OBJECTS_STAIRCASE_UPPER;
 
 import org.powerbot.core.script.job.state.Node;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.util.Filter;
@@ -12,7 +13,8 @@ public class UseStairs extends Node {
 
 	@Override
 	public boolean activate() {		
-		return SceneEntities.getNearest(new Filter<SceneObject>() {
+		return Game.isLoggedIn() && 
+				SceneEntities.getNearest(new Filter<SceneObject>() {
 			public boolean accept(SceneObject entity) {
 				return entity.getId() == OBJECTS_STAIRCASE_UPPER;
 			}
@@ -29,7 +31,7 @@ public class UseStairs extends Node {
 		sleep(1000,1200); //account for lag.
 		
 		//should stop it spam clicking...
-		while(!Players.getLocal().isIdle())
+		while(!Players.getLocal().isIdle() && Game.isLoggedIn())
 			sleep(50);
 	}
 

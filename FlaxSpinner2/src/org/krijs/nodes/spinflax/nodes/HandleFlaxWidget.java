@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.krijs.nodes.spinflax.nodes.flaxwidget.nodes.*;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.core.script.job.state.Tree;
+import org.powerbot.game.api.methods.Game;
+
 import static org.krijs.definitions.Widgets.WIDGET_CREATE_ITEM;
 
 public class HandleFlaxWidget extends Node {
@@ -14,7 +16,8 @@ public class HandleFlaxWidget extends Node {
 
 	@Override
 	public boolean activate() {		
-		return WIDGET_CREATE_ITEM.validate();
+		return Game.isLoggedIn() && 
+				WIDGET_CREATE_ITEM.validate();
 	}
 
 	@Override

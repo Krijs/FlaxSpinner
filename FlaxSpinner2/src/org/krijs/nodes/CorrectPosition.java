@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.krijs.definitions.PaintMethods;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.core.script.job.state.Tree;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.krijs.nodes.correctional.*;
 
@@ -23,7 +24,7 @@ public class CorrectPosition extends Node {
 	@Override
 	public boolean activate() {		
 		int plane = Players.getLocal().getPlane();
-		return SCRIPT_RUNNING && plane < 1 || plane > 2;
+		return Game.isLoggedIn() && SCRIPT_RUNNING && plane < 1 || plane > 2;
 	}
 
 	@Override

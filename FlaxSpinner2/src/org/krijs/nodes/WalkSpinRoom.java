@@ -11,6 +11,7 @@ import org.krijs.nodes.walkspinroom.nodes.*;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.core.script.job.state.Tree;
 import org.powerbot.game.api.methods.Calculations;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.tab.Inventory;
 
 public class WalkSpinRoom extends Node {
@@ -25,7 +26,8 @@ public class WalkSpinRoom extends Node {
 
 	@Override
 	public boolean activate() {		
-		return SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) &&
+		return Game.isLoggedIn() && 
+				SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) &&
 				Calculations.distanceTo(TILE_SPIN) >= 5;
 	}
 

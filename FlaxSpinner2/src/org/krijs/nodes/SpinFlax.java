@@ -6,6 +6,7 @@ import org.powerbot.core.script.job.state.Node;
 import org.powerbot.core.script.job.state.Tree;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.Calculations;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.util.Filter;
@@ -36,7 +37,8 @@ public class SpinFlax extends Node {
 				return entity.getId() == OBJECTS_SPINNER;
 			}
 		});
-		return SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) && Players.getLocal().getPlane() == 1
+		return Game.isLoggedIn() && 
+				SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) && Players.getLocal().getPlane() == 1
 				 && Calculations.distanceTo(TILE_SPIN) <= 5 && 
 				 spinner.isOnScreen() && !WIDGET_MAKE_ITEM.validate();
 	}

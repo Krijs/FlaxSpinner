@@ -14,7 +14,8 @@ public class Plane1 extends Node {
 	@Override
 	public boolean activate() {		
 		Player p = Players.getLocal();
-		return p.getPlane() == 1 && !p.isMoving() && Calculations.distanceTo(TILE_SPIN) >= 5
+		return Game.isLoggedIn() && 
+				p.getPlane() == 1 && !p.isMoving() && Calculations.distanceTo(TILE_SPIN) >= 5
 				&& Game.isLoggedIn();
 	}
 

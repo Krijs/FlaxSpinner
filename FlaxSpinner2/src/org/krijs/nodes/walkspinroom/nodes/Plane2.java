@@ -19,7 +19,8 @@ public class Plane2 extends Node {
 	@Override
 	public boolean activate() {
 		Player p = Players.getLocal();
-		return p.getPlane() == 2 && !p.isMoving() && Game.isLoggedIn();
+		return Game.isLoggedIn() && 
+				p.getPlane() == 2 && !p.isMoving() && Game.isLoggedIn();
 	}
 
 	@Override

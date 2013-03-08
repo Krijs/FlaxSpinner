@@ -1,6 +1,7 @@
 package org.krijs.nodes.spinflax.nodes;
 
 import org.powerbot.core.script.job.state.Node;
+import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.util.Filter;
@@ -13,7 +14,8 @@ public class ClickSpinner extends Node {
 
 	@Override
 	public boolean activate() {		
-		return !WIDGET_CREATE_ITEM.validate();
+		return Game.isLoggedIn() && 
+				!WIDGET_CREATE_ITEM.validate();
 	}
 
 	@Override
@@ -25,7 +27,7 @@ public class ClickSpinner extends Node {
 		}).interact("Spin");
 		sleep(1000, 1200); //account for lag
 		
-		while(!Players.getLocal().isIdle())
+		while(!Players.getLocal().isIdle() && Game.isLoggedIn())
 			sleep(51);	
 	}
 
