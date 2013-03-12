@@ -15,12 +15,12 @@ public class StopScript extends Node {
 
 	@Override
 	public boolean activate() {		
-		return !SCRIPT_RUNNING;
+		return !scriptRunning;
 	}
 
 	@Override
 	public void execute() {
-		_activeScript.log.info(SCRIPT_STOP_REASON);
+		_activeScript.log.info(scriptStopReason);
 		_activeScript.stop();		
 	}
 

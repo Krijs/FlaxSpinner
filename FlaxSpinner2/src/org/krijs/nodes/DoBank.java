@@ -22,7 +22,7 @@ public class DoBank extends Node {
 
 	@Override
 	public boolean activate() {		
-		return Game.isLoggedIn() && SCRIPT_RUNNING && Bank.getNearest() != null && Calculations.distanceTo(TILE_BANK) <= 5
+		return Game.isLoggedIn() && scriptRunning && Bank.getNearest() != null && Calculations.distanceTo(TILE_BANK) <= 5
 				&& !Inventory.contains(ITEM_FLAX) && Bank.open();
 	}
 
@@ -38,8 +38,8 @@ public class DoBank extends Node {
 			} else {
 				//We didn't withdraw... Check we have items.
 				if(Bank.getItemCount(ITEM_FLAX) == 0) {
-					SCRIPT_RUNNING = false;
-					SCRIPT_STOP_REASON = "Out of materials";
+					scriptRunning = false;
+					scriptStopReason = "Out of materials";
 				}
 			}
 		}		

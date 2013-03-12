@@ -5,8 +5,8 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.map.Path;
 
 public final class Globals {
-	public static boolean SCRIPT_RUNNING = true;
-	public static String SCRIPT_STOP_REASON = "";
+	public static boolean scriptRunning = true;
+	public static String scriptStopReason = "";
 	
 	public static void walkTo(Tile tile){                         
         Path path = Walking.findPath(tile);               

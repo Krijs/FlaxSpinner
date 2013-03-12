@@ -1,6 +1,6 @@
 package org.krijs.nodes;
 
-import static org.krijs.definitions.Globals.SCRIPT_RUNNING;
+import static org.krijs.definitions.Globals.scriptRunning;
 import static org.krijs.definitions.KeyTiles.TILE_BANK;
 import static org.krijs.definitions.Items.ITEM_FLAX;
 
@@ -27,7 +27,7 @@ public class WalkBank extends Node {
 	@Override
 	public boolean activate() {		
 		return Game.isLoggedIn() && 
-				SCRIPT_RUNNING && Calculations.distanceTo(TILE_BANK) >= 5 
+				scriptRunning && Calculations.distanceTo(TILE_BANK) >= 5 
 				&& !Inventory.contains(ITEM_FLAX);
 	}
 

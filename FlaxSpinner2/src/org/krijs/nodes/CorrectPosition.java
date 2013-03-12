@@ -1,6 +1,6 @@
 package org.krijs.nodes;
 
-import static org.krijs.definitions.Globals.SCRIPT_RUNNING;
+import static org.krijs.definitions.Globals.scriptRunning;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class CorrectPosition extends Node {
 	@Override
 	public boolean activate() {		
 		int plane = Players.getLocal().getPlane();
-		return Game.isLoggedIn() && SCRIPT_RUNNING && plane < 1 || plane > 2;
+		return Game.isLoggedIn() && scriptRunning && plane < 1 || plane > 2;
 	}
 
 	@Override

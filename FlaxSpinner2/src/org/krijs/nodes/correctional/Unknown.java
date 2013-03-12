@@ -31,7 +31,7 @@ public class Unknown extends Node {
 
 	@Override
 	public void execute() {		
-		SCRIPT_RUNNING = false;
-		SCRIPT_STOP_REASON = "Unknown location, stopping...";		
+		scriptRunning = false;
+		scriptStopReason = "Unknown location, stopping...";		
 	}
 }

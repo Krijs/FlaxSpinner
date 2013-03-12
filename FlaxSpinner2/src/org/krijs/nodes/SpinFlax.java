@@ -15,7 +15,7 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.krijs.definitions.PaintMethods;
 import static org.krijs.definitions.Widgets.*;
 import static org.krijs.definitions.Objects.OBJECTS_SPINNER;
-import static org.krijs.definitions.Globals.SCRIPT_RUNNING;
+import static org.krijs.definitions.Globals.scriptRunning;
 import static org.krijs.definitions.Items.*;
 import static org.krijs.definitions.KeyTiles.TILE_SPIN;
 import org.krijs.nodes.spinflax.nodes.*;
@@ -38,7 +38,7 @@ public class SpinFlax extends Node {
 			}
 		});
 		return Game.isLoggedIn() && 
-				SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) && Players.getLocal().getPlane() == 1
+				scriptRunning && Inventory.contains(ITEM_FLAX) && Players.getLocal().getPlane() == 1
 				 && Calculations.distanceTo(TILE_SPIN) <= 5 && 
 				 spinner.isOnScreen() && !WIDGET_MAKE_ITEM.validate();
 	}

@@ -1,6 +1,6 @@
 package org.krijs.nodes;
 
-import static org.krijs.definitions.Globals.SCRIPT_RUNNING;
+import static org.krijs.definitions.Globals.scriptRunning;
 import static org.krijs.definitions.Items.ITEM_FLAX;
 import static org.krijs.definitions.KeyTiles.TILE_SPIN;
 
@@ -27,7 +27,7 @@ public class WalkSpinRoom extends Node {
 	@Override
 	public boolean activate() {		
 		return Game.isLoggedIn() && 
-				SCRIPT_RUNNING && Inventory.contains(ITEM_FLAX) &&
+				scriptRunning && Inventory.contains(ITEM_FLAX) &&
 				Calculations.distanceTo(TILE_SPIN) >= 5;
 	}
 
