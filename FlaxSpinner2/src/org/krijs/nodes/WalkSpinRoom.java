@@ -13,6 +13,7 @@ import org.powerbot.core.script.job.state.Tree;
 import org.powerbot.game.api.methods.Calculations;
 import org.powerbot.game.api.methods.Game;
 import org.powerbot.game.api.methods.tab.Inventory;
+import org.powerbot.game.api.methods.widget.Bank;
 
 public class WalkSpinRoom extends Node {
 	
@@ -28,7 +29,9 @@ public class WalkSpinRoom extends Node {
 	public boolean activate() {		
 		return Game.isLoggedIn() && 
 				scriptRunning && Inventory.contains(ITEM_FLAX) &&
-				Calculations.distanceTo(TILE_SPIN) >= 5;
+				Calculations.distanceTo(TILE_SPIN) >= 5 && Bank.close();
+				//Only activate when we know the bank has closed. Script has been getting
+				//stuck due to the bank being open!
 	}
 
 	@Override
