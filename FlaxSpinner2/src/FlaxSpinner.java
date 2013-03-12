@@ -24,6 +24,7 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
     public static ArrayList<Node> jobs = new ArrayList<Node>();
     public PaintMethods m = new PaintMethods(Skills.CRAFTING);
     private Client client = Bot.client();
+    
 
 	@Override
 	public void onRepaint(Graphics g1) {
@@ -42,12 +43,12 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
 	             123, 12);
 	     g.drawString(String.format("Experience Gained: %s (%s per hour)",
 	             m.getXp(), m.getXpHr()), 223, 12);
-	     g.drawString("Crafting TTL: " + m.getTTL(), 483, 12);	     
+	     g.drawString(String.format("Crafting TTL: %s",m.getTTL()), 483, 12);	     
 	     
-	     g.drawString("Flax spun: " + m.getXp() / 15, 633, 12);
+	     g.drawString(String.format("Flax spun: %d", m.getXp() / 15), 633, 12);
 	     
 	     g.drawString("kFlax by Krijs v0.5", 663, 45);	
-	     g.drawString("Currently: " + m.getCurrentAction(), 463, 45);
+	     g.drawString(String.format("Currently: %s", m.getCurrentAction()), 463, 45);	     
 	     
 	}
 
@@ -83,6 +84,6 @@ public class FlaxSpinner extends ActiveScript implements PaintListener {
             jobContainer = new Tree(jobs.toArray(new Node[jobs.size()]));
         }
 		return 200;
-	}
+	}	
 
 }
